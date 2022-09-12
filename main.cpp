@@ -1,5 +1,3 @@
-// testing merge - if you see this in main branch merging is fully functional :)
-
 // CS221Homework1.cpp
 // 
 // Primary author: Br. David Carlson         Other authors: ________________________________________
