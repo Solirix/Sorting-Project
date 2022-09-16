@@ -1,6 +1,6 @@
 // CS221Homework1.cpp
 // 
-// Primary author: Br. David Carlson         Other authors: ________________________________________
+// Primary author: Br. David Carlson         Other authors: 
 //
 // Date: Sept 14, 2021
 //
