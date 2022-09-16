@@ -57,7 +57,7 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
-
+void simplerQuickSort(int newNumbers[], int Lower, int Upper);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort function here.
 
@@ -79,7 +79,7 @@ int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, in
 int simplerPartition(int newNumbers[], int Lower, int Upper);
 
 //***** simpler quicksort function here.
-void simplerQuickSort(int newNumbers[], int Lower, int Upper);
+
 
 
 // Given:  dataArray - an array of integers
