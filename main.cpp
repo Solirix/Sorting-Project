@@ -55,7 +55,7 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 //         numCompares - the number of comparisons used in this process
 //         numSwaps - the number of swaps used in this process
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
-
+int Partition(int numbers[], int Lower, int Upper);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
 
@@ -369,8 +369,41 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 // In the following 3 functions make sure that you are keeping track of, and returning in appropriate parameters, the
 // number of comparisons and the number of swaps used.
 
-// Write your code for simplerPartition here:
+//code for swap function
+inline void Swap(int & First, int & Second)
+   {
+   int Temp;
 
+   Temp = First;
+   First = Second;
+   Second = Temp;
+   }
+
+// Write your code for simplerPartition here:
+int Partition(int numbers[], int Lower, int Upper)
+   {
+   int Pivot, Left, Right;
+
+   Pivot = numbers[Lower];
+   Left = Lower;
+   Right = Upper;
+
+   while (Left < Right)
+      {
+      // scan from left, skipping items that belong there
+      while ((numbers[Left] <= Pivot) && (Left < Upper))
+         Left++;
+      // scan from right, skipping items that belong there
+      while (numbers[Right] > Pivot)
+         Right--;
+      if (Left < Right)
+         Swap(numbers[Left], numbers[Right]);
+      }
+
+   numbers[Lower] = numbers[Right];
+   numbers[Right] = Pivot;
+   return Right;  // return the pivot index
+   }
 
 
 // Write your code for simplerQuickSort here:
