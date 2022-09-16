@@ -79,7 +79,7 @@ int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, in
 int simplerPartition(int numbers[], int Lower, int Upper);
 
 //***** simpler quicksort function here.
-
+void simplerQuickSort(int newNumbers[], int Lower, int Upper);
 
 
 // Given:  dataArray - an array of integers
