@@ -277,6 +277,11 @@ int main()
     //***** Be sure to label things clearly so that we can tell what action the number of swaps and number of
     //***** comparisons refers to.
 
+    simplerQuickSortDriver(newNumbers, newLength, compares, swaps);
+
+    cout << "2000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:" << endl;
+    cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
+
     return 0;
     }
 
