@@ -251,10 +251,10 @@ int main()
     //***** Then report on the number of comparisons and the number of swaps, exactly like in the previous report.
     ifstream newFile;
 
-    newFile.open("numbers2.txt");
+    newFile.open("numbers2.txt", ios::in);
     if (newFile.fail()) {
         cout << "numbers2.txt failed to open, exiting program";
-        exit(0);
+        exit(1);
     }
 
     for (int i = 0; i < newLength; ++i)
