@@ -58,6 +58,7 @@ int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, in
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
 void simplerQuickSort(int newNumbers[], int Lower, int Upper);
+
 //Precondition: newNumbers is an integer array with arraySize elements
 //Postcondition: sets numCompares and numSwaps to zero and calls the quicksort function
 void simplerQuickSortDriver(int newNumbers[], int arraySize, int& numCompares, int& numSwaps);
@@ -449,9 +450,6 @@ void simplerQuickSort(int newNumbers[], int Lower, int Upper)
       simplerQuickSort(newNumbers, PivotIndex + 1, Upper);   // sort right side
       }
    }
-
-
-
 
 // Write your code for simplerQuickSortDriver here:
 void simplerQuickSortDriver(int newNumbers[], int arraySize, int & numCompares, int & numSwaps)
