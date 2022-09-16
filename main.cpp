@@ -223,6 +223,12 @@ int main()
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
     // Final tests comparing the Zybook Quicksort (just seen above) and a simpler Quicksort:
+    
+
+    //***** Fill in here the code to again read the data from numbers2.txt and place them into the newNumbers array.
+    //***** This is so that we can run another sorting test on the exact same numbers.
+    //***** Then call your driver function for the simpler quicksort so that it does sort the exact same numbers.
+    //***** Then report on the number of comparisons and the number of swaps, exactly like in the previous report.
     ifstream newFile;
 
     newFile.open("numbers2.txt");
@@ -235,12 +241,6 @@ int main()
         newFile >> newNumbers[i];
 
     newFile.close();
-
-    //***** Fill in here the code to again read the data from numbers2.txt and place them into the newNumbers array.
-    //***** This is so that we can run another sorting test on the exact same numbers.
-    //***** Then call your driver function for the simpler quicksort so that it does sort the exact same numbers.
-    //***** Then report on the number of comparisons and the number of swaps, exactly like in the previous report.
-
 
     //------------------- Sometimes we sort an array just to be sure the data is in order : ---------------------
     quickSortDriver(newNumbers, newLength, compares, swaps);
