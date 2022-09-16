@@ -78,10 +78,10 @@ void simplerQuickSortDriver(int newNumbers[], int arraySize, int& numCompares, i
    Return: NumArray  The partitioned array.
            In the function name it returns the index of the pivot value.
 */
-int simplerPartition(int numbers[], int Lower, int Upper);
+int simplerPartition(int newNumbers[], int Lower, int Upper);
 
 //***** simpler quicksort function here.
-
+void simplerQuickSort(int newNumbers[], int Lower, int Upper);
 
 
 // Given:  dataArray - an array of integers
@@ -436,6 +436,19 @@ int simplerPartition(int newNumbers[], int Lower, int Upper)
 
 
 // Write your code for simplerQuickSort here:
+
+void simplerQuickSort(int newNumbers[], int Lower, int Upper)
+   {
+   int PivotIndex;
+
+   if (Lower < Upper)
+      {
+      PivotIndex = simplerPartition(newNumbers, Lower, Upper);
+      simplerQuickSort(newNumbers, Lower, PivotIndex - 1);   // sort left side
+      simplerQuickSort(newNumbers, PivotIndex + 1, Upper);   // sort right side
+      }
+   }
+
 
 
 
