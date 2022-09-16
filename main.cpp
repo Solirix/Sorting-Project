@@ -56,6 +56,13 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 //         numSwaps - the number of swaps used in this process
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
 
+//***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
+
+
+//***** Write the comment section and the 1-line function declaration for your "simpler" quicksort function here.
+
+
+//***** Write here the comment section and the 1-line function declaration for your partition function that is used by your
 /* Given:  NumArray  Array of ints.
            Lower     An index into the array.
            Upper     An index into the array.
@@ -71,13 +78,6 @@ int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, in
 */
 int simplerPartition(int numbers[], int Lower, int Upper);
 
-//***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
-
-
-//***** Write the comment section and the 1-line function declaration for your "simpler" quicksort function here.
-
-
-//***** Write here the comment section and the 1-line function declaration for your partition function that is used by your
 //***** simpler quicksort function here.
 
 
