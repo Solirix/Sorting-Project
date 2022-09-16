@@ -76,7 +76,7 @@ int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, in
    Return: NumArray  The partitioned array.
            In the function name it returns the index of the pivot value.
 */
-int simplerPartition(int numbers[], int Lower, int Upper);
+int simplerPartition(int newNumbers[], int Lower, int Upper);
 
 //***** simpler quicksort function here.
 void simplerQuickSort(int newNumbers[], int Lower, int Upper);
