@@ -63,10 +63,7 @@ void simplerQuickSort(int newNumbers[], int Lower, int Upper);
 void simplerQuickSortDriver(int newNumbers[], int arraySize, int& numCompares, int& numSwaps);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort function here.
-//Preconditon: newNumbers is an integer array, Lower is the first starting index of the partition, and Upper is the last
-//index of the partition.
-//Postcondition: returns a sorted newNumbers array using the simpler quicksort algorithm
-void simplerQuickSort(int newNumbers[], int Lower, int Upper);
+
 
 //***** Write here the comment section and the 1-line function declaration for your partition function that is used by your
 /* Given:  NumArray  Array of ints.
