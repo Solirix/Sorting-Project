@@ -407,11 +407,7 @@ inline void Swap(int & First, int & Second)
 
 
 // Write your code for simplerPartition here:
-<<<<<<< HEAD
-int simplerPartition(int numbers[], int Lower, int Upper)
-=======
 int simplerPartition(int newNumbers[], int Lower, int Upper)
->>>>>>> eced34f4c5416135610a94bcae8b6951df399985
    {
    int Pivot, Left, Right;
 
