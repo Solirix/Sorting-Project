@@ -55,7 +55,21 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 //         numCompares - the number of comparisons used in this process
 //         numSwaps - the number of swaps used in this process
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
-int Partition(int numbers[], int Lower, int Upper);
+
+/* Given:  NumArray  Array of ints.
+           Lower     An index into the array.
+           Upper     An index into the array.
+   Assume: Lower < Upper
+   Task:   To partition the section of NumArray between index Lower and
+           index Upper so that everything to the left of the returned
+           index is less or equal to the pivot item, NumArray[Lower],
+           everything to the right of the returned index is greater
+           than the pivot item, and the pivot item itself is located
+           at the returned index.
+   Return: NumArray  The partitioned array.
+           In the function name it returns the index of the pivot value.
+*/
+int simplerPartition(int numbers[], int Lower, int Upper);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
 
@@ -391,29 +405,30 @@ inline void Swap(int & First, int & Second)
    Second = Temp;
    }
 
+
 // Write your code for simplerPartition here:
-int Partition(int numbers[], int Lower, int Upper)
+int simplerPartition(int newNumbers[], int Lower, int Upper)
    {
    int Pivot, Left, Right;
 
-   Pivot = numbers[Lower];
+   Pivot = newNumbers[Lower];
    Left = Lower;
    Right = Upper;
 
    while (Left < Right)
       {
       // scan from left, skipping items that belong there
-      while ((numbers[Left] <= Pivot) && (Left < Upper))
+      while ((newNumbers[Left] <= Pivot) && (Left < Upper))
          Left++;
       // scan from right, skipping items that belong there
-      while (numbers[Right] > Pivot)
+      while (newNumbers[Right] > Pivot)
          Right--;
       if (Left < Right)
-         Swap(numbers[Left], numbers[Right]);
+         Swap(newNumbers[Left], newNumbers[Right]);
       }
 
-   numbers[Lower] = numbers[Right];
-   numbers[Right] = Pivot;
+   newNumbers[Lower] = newNumbers[Right];
+   newNumbers[Right] = Pivot;
    return Right;  // return the pivot index
    }
 
@@ -423,4 +438,9 @@ int Partition(int numbers[], int Lower, int Upper)
 
 
 // Write your code for simplerQuickSortDriver here:
-
+void quickSortDriver(int newNumbers[], int arraySize, int & numCompares, int & numSwaps)
+    {
+    numCompares = 0;
+    numSwaps = 0;
+    quickSort(newNumbers, 0, arraySize - 1, numCompares, numSwaps);
+    }
