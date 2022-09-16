@@ -223,6 +223,18 @@ int main()
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
     // Final tests comparing the Zybook Quicksort (just seen above) and a simpler Quicksort:
+    ifstream newFile;
+
+    newFile.open("numbers2.txt");
+    if (newFile.fail()) {
+        cout << "numbers2.txt failed to open, exiting program";
+        exit(0);
+    }
+
+    for (int i = 0; i < newLength; ++i)
+        newFile >> newNumbers[i];
+
+    newFile.close();
 
     //***** Fill in here the code to again read the data from numbers2.txt and place them into the newNumbers array.
     //***** This is so that we can run another sorting test on the exact same numbers.
