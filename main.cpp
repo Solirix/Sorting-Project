@@ -56,14 +56,32 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 //         numSwaps - the number of swaps used in this process
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
 
-
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
+void simplerQuickSort(int newNumbers[], int Lower, int Upper);
 
+//Precondition: newNumbers is an integer array with arraySize elements
+//Postcondition: sets numCompares and numSwaps to zero and calls the quicksort function
+void simplerQuickSortDriver(int newNumbers[], int arraySize, int& numCompares, int& numSwaps);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort function here.
 
 
 //***** Write here the comment section and the 1-line function declaration for your partition function that is used by your
+/* Given:  NumArray  Array of ints.
+           Lower     An index into the array.
+           Upper     An index into the array.
+   Assume: Lower < Upper
+   Task:   To partition the section of NumArray between index Lower and
+           index Upper so that everything to the left of the returned
+           index is less or equal to the pivot item, NumArray[Lower],
+           everything to the right of the returned index is greater
+           than the pivot item, and the pivot item itself is located
+           at the returned index.
+   Return: NumArray  The partitioned array.
+           In the function name it returns the index of the pivot value.
+*/
+int simplerPartition(int newNumbers[], int Lower, int Upper);
+
 //***** simpler quicksort function here.
 
 
@@ -223,12 +241,24 @@ int main()
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
     // Final tests comparing the Zybook Quicksort (just seen above) and a simpler Quicksort:
+    
 
     //***** Fill in here the code to again read the data from numbers2.txt and place them into the newNumbers array.
     //***** This is so that we can run another sorting test on the exact same numbers.
     //***** Then call your driver function for the simpler quicksort so that it does sort the exact same numbers.
     //***** Then report on the number of comparisons and the number of swaps, exactly like in the previous report.
+    ifstream newFile;
 
+    newFile.open("numbers2.txt", ios::in);
+    if (newFile.fail()) {
+        cout << "numbers2.txt failed to open, exiting program";
+        exit(1);
+    }
+
+    for (int i = 0; i < newLength; ++i)
+        newFile >> newNumbers[i];
+
+    newFile.close();
 
     //------------------- Sometimes we sort an array just to be sure the data is in order : ---------------------
     quickSortDriver(newNumbers, newLength, compares, swaps);
@@ -244,6 +274,17 @@ int main()
     //***** Then report on the number of comparisons and the number of swaps, exactly like in the previous report.
     //***** Be sure to label things clearly so that we can tell what action the number of swaps and number of
     //***** comparisons refers to.
+
+    simplerQuickSortDriver(newNumbers, newLength, compares, swaps);
+
+    cout << "2000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:" << endl;
+    cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
+
+
+    simplerQuickSortDriver(newNumbers, halfLength, compares, swaps);
+
+    cout << "1000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:\n";
+    cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
     return 0;
     }
@@ -369,13 +410,62 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 // In the following 3 functions make sure that you are keeping track of, and returning in appropriate parameters, the
 // number of comparisons and the number of swaps used.
 
-// Write your code for simplerPartition here:
+//code for swap function
+inline void Swap(int & First, int & Second)
+   {
+   int Temp;
 
+   Temp = First;
+   First = Second;
+   Second = Temp;
+   }
+
+
+// Write your code for simplerPartition here:
+int simplerPartition(int newNumbers[], int Lower, int Upper)
+   {
+   int Pivot, Left, Right;
+
+   Pivot = newNumbers[Lower];
+   Left = Lower;
+   Right = Upper;
+
+   while (Left < Right)
+      {
+      // scan from left, skipping items that belong there
+      while ((newNumbers[Left] <= Pivot) && (Left < Upper))
+         Left++;
+      // scan from right, skipping items that belong there
+      while (newNumbers[Right] > Pivot)
+         Right--;
+      if (Left < Right)
+         Swap(newNumbers[Left], newNumbers[Right]);
+      }
+
+   newNumbers[Lower] = newNumbers[Right];
+   newNumbers[Right] = Pivot;
+   return Right;  // return the pivot index
+   }
 
 
 // Write your code for simplerQuickSort here:
 
+void simplerQuickSort(int newNumbers[], int Lower, int Upper)
+   {
+   int PivotIndex;
 
+   if (Lower < Upper)
+      {
+      PivotIndex = simplerPartition(newNumbers, Lower, Upper);
+      simplerQuickSort(newNumbers, Lower, PivotIndex - 1);   // sort left side
+      simplerQuickSort(newNumbers, PivotIndex + 1, Upper);   // sort right side
+      }
+   }
 
 // Write your code for simplerQuickSortDriver here:
-
+void simplerQuickSortDriver(int newNumbers[], int arraySize, int & numCompares, int & numSwaps)
+    {
+    numCompares = 0;
+    numSwaps = 0;
+    quickSort(newNumbers, 0, arraySize - 1, numCompares, numSwaps);
+    }
