@@ -275,13 +275,14 @@ int main()
     //***** Be sure to label things clearly so that we can tell what action the number of swaps and number of
     //***** comparisons refers to.
 
-    //Now we do the simpler quicksort for 2000 items
+    //sort the entire, 2000 item array
     simplerQuickSortDriver(newNumbers, newLength, compares, swaps);
 
     cout << "2000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:" << endl;
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
-    //Here we do the simpler quicksort for 1000 items
+
+    //sort half of the array to act as a 1000 item array
     simplerQuickSortDriver(newNumbers, halfLength, compares, swaps);
 
     cout << "1000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:\n";
