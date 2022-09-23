@@ -57,7 +57,7 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
 
 //***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
-void simplerQuickSort(int newNumbers[], int Lower, int Upper);
+void simplerQuickSort(int newNumbers[], int Lower, int Upper, int & numCompares, int & numSwaps);
 
 //Precondition: newNumbers is an integer array with arraySize elements
 //Postcondition: sets numCompares and numSwaps to zero and calls the quicksort function
@@ -424,7 +424,7 @@ inline void Swap(int & First, int & Second)
 
 
 // Write your code for simplerPartition here:
-int simplerPartition(int newNumbers[], int Lower, int Upper)
+int simplerPartition(int newNumbers[], int Lower, int Upper, int & numCompares, int & numSwaps)
    {
    int Pivot, Left, Right;
 
@@ -452,15 +452,15 @@ int simplerPartition(int newNumbers[], int Lower, int Upper)
 
 // Write your code for simplerQuickSort here:
 
-void simplerQuickSort(int newNumbers[], int Lower, int Upper)
+void simplerQuickSort(int newNumbers[], int Lower, int Upper, int & numCompares, int & numSwaps)
    {
    int PivotIndex;
 
    if (Lower < Upper)
       {
       PivotIndex = simplerPartition(newNumbers, Lower, Upper);
-      simplerQuickSort(newNumbers, Lower, PivotIndex - 1);   // sort left side
-      simplerQuickSort(newNumbers, PivotIndex + 1, Upper);   // sort right side
+      simplerQuickSort(newNumbers, Lower, PivotIndex - 1, numCompares, numSwaps);   // sort left side
+      simplerQuickSort(newNumbers, PivotIndex + 1, Upper, numCompares, numSwaps);   // sort right side
       }
    }
 
@@ -469,5 +469,5 @@ void simplerQuickSortDriver(int newNumbers[], int arraySize, int & numCompares, 
     {
     numCompares = 0;
     numSwaps = 0;
-    quickSort(newNumbers, 0, arraySize - 1, numCompares, numSwaps);
+    simplerQuickSort(newNumbers, 0, arraySize - 1, numCompares, numSwaps);
     }
