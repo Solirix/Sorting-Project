@@ -280,6 +280,12 @@ int main()
     cout << "2000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:" << endl;
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
+
+    simplerQuickSortDriver(newNumbers, halfLength, compares, swaps);
+
+    cout << "1000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:\n";
+    cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
+
     return 0;
     }
 
