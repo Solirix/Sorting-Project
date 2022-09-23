@@ -437,11 +437,14 @@ int simplerPartition(int newNumbers[], int Lower, int Upper, int & numCompares, 
       // scan from left, skipping items that belong there
       while ((newNumbers[Left] <= Pivot) && (Left < Upper))
          Left++;
+         numCompares++;
       // scan from right, skipping items that belong there
       while (newNumbers[Right] > Pivot)
          Right--;
+         numCompares++;
       if (Left < Right)
          Swap(newNumbers[Left], newNumbers[Right]);
+         numSwaps++;
       }
 
    newNumbers[Lower] = newNumbers[Right];
@@ -458,7 +461,7 @@ void simplerQuickSort(int newNumbers[], int Lower, int Upper, int & numCompares,
 
    if (Lower < Upper)
       {
-      PivotIndex = simplerPartition(newNumbers, Lower, Upper);
+      PivotIndex = simplerPartition(newNumbers, Lower, Upper, numCompares, numSwaps);
       simplerQuickSort(newNumbers, Lower, PivotIndex - 1, numCompares, numSwaps);   // sort left side
       simplerQuickSort(newNumbers, PivotIndex + 1, Upper, numCompares, numSwaps);   // sort right side
       }
