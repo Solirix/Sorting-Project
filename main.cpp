@@ -452,16 +452,19 @@ int simplerPartition(int newNumbers[], int Lower, int Upper, int & numCompares, 
    while (Left < Right)
       {
       // scan from left, skipping items that belong there
-      while ((newNumbers[Left] <= Pivot) && (Left < Upper))
+      while ((newNumbers[Left] <= Pivot) && (Left < Upper)) {
          Left++;
          numCompares++;
+      }
       // scan from right, skipping items that belong there
-      while (newNumbers[Right] > Pivot)
+      while (newNumbers[Right] > Pivot) {
          Right--;
          numCompares++;
-      if (Left < Right)
+      }
+      if (Left < Right) {
          Swap(newNumbers[Left], newNumbers[Right]);
          numSwaps++;
+      }
       }
 
    newNumbers[Lower] = newNumbers[Right];
