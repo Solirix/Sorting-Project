@@ -56,7 +56,6 @@ void quickSortDriver(int numbers[], int arraySize, int & numCompares, int & numS
 //         numSwaps - the number of swaps used in this process
 int Partition(int numbers[], int startIndex, int endIndex, int & numCompares, int & numSwaps);
 
-//***** Write the comment section and the 1-line function declaration for your "simpler" quicksort driver function here.
 //Precondition: newNumbers is an integer array, lower is the beginning of the partition, and upper is the end of the partition.
 //Postcondition: Returns newNumbers sorted using a simpler version of Quicksort
 void simplerQuickSort(int newNumbers[], int Lower, int Upper, int & numCompares, int & numSwaps);
