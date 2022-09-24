@@ -275,9 +275,26 @@ int main()
     //***** Be sure to label things clearly so that we can tell what action the number of swaps and number of
     //***** comparisons refers to.
 
+    ifstream newFile2;
+
+    newFile2.open("numbers2.txt", ios::in);
+    if (newFile2.fail()) {
+        cout << "numbers2.txt failed to open, exiting program";
+        exit(1);
+    }
+
+    for (int i = 0; i < newLength; ++i)
+        newFile2 >> newNumbers[i];
+
+    newFile2.close();
+
     //sort the entire, 2000 item array
     simplerQuickSortDriver(newNumbers, newLength, compares, swaps);
 
+    cout << "2000-ITEM ARRAY SORTED WITH SIMPLER QUICKSORT:" << endl;
+    cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
+
+    simplerQuickSortDriver(newNumbers, newLength, compares, swaps);
     cout << "2000-ITEM ARRAY SORTED AGAIN WITH SIMPLER QUICKSORT TO BE SURE IT IS STILL IN ORDER:" << endl;
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
