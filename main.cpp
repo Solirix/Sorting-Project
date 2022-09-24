@@ -300,6 +300,24 @@ int main()
     cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
 
 
+    //repopulating the array with numbers to sort the 1000 item array with simpler quicksort
+    newFile2.open("numbers2.txt", ios::in);
+        if (newFile2.fail()) {
+            cout << "numbers2.txt failed to open, exiting program";
+            exit(1);
+        }
+
+        for (int i = 0; i < newLength; ++i)
+            newFile2 >> newNumbers[i];
+
+        newFile2.close();
+
+        //sort the array with simplerquicksort (half length to be 1000 item)
+        simplerQuickSortDriver(newNumbers, halfLength, compares, swaps);
+
+        cout << "1000-ITEM ARRAY SORTED WITH SIMPLER QUICKSORT\n";
+        cout << endl << "Number of comparisons: " << compares << endl << "Number of swaps: " << swaps << endl << endl;
+
     //sort half of the array to act as a 1000 item array
     simplerQuickSortDriver(newNumbers, halfLength, compares, swaps);
 
