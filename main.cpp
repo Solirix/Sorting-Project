@@ -2,7 +2,7 @@
 // 
 // Primary author: Br. David Carlson         Other authors: Matthew Alexander, Michael Astfalk, and Aiden Buterbaugh
 //
-// Date: Sept 14, 2021
+// Date: Sept 24, 2022
 //
 // This program runs a series of tests to estimate the running time for sorting some short arrays of integers and then two
 // longer arrays. Selection sort and quicksort are compared in this fashion. The actual sorted data are shown for the two
