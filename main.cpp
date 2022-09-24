@@ -455,17 +455,19 @@ int simplerPartition(int newNumbers[], int Lower, int Upper, int & numCompares, 
       {
       // scan from left, skipping items that belong there
       while ((newNumbers[Left] <= Pivot) && (Left < Upper)) {
-         Left++;
          numCompares++;
+         Left++;
       }
+      numCompares++; // To count the compare that ended the loop
       // scan from right, skipping items that belong there
       while (newNumbers[Right] > Pivot) {
-         Right--;
          numCompares++;
+         Right--;
       }
+      numCompares++; // To count the compare that ended the loop
       if (Left < Right) {
-         Swap(newNumbers[Left], newNumbers[Right]);
          numSwaps++;
+         Swap(newNumbers[Left], newNumbers[Right]);
       }
       }
 
