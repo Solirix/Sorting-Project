@@ -80,7 +80,7 @@ void simplerQuickSortDriver(int newNumbers[], int arraySize, int& numCompares, i
    Return: NumArray  The partitioned array.
            In the function name it returns the index of the pivot value.
 */
-int simplerPartition(int newNumbers[], int Lower, int Upper);
+int simplerPartition(int newNumbers[], int Lower, int Upper, int& numCompares, int& numSwaps);
 
 //***** simpler quicksort function here.
 
